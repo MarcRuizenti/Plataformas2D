@@ -4,11 +4,15 @@ using Unity.Burst.CompilerServices;
 using UnityEditor;
 using UnityEngine;
 
-[ExecuteAlways]
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Movimiento")]
     public int speed;
+    public float _jumpForce;
+    public float _timeJump;
+    public bool _activeTimeJump = false;
+    private float _timeJumpCurent;
+
 
     [Header("Deteccion de Suelo")]
     [Min(0f)]
@@ -17,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     public bool Gronded;
     public List<Vector2> points;
 
+
     private Rigidbody2D _rb;
     private void Start()
     {
@@ -24,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        transform.position += new Vector3( Input.GetAxis("Horizontal") * speed * Time.fixedDeltaTime, 0, 0);
+        transform.position += new Vector3(Input.GetAxis("Horizontal") * speed * Time.fixedDeltaTime, 0, 0);
 
         Gronded = false;
         foreach (Vector2 p in points)
@@ -38,10 +43,13 @@ public class PlayerMovement : MonoBehaviour
             }
 
         }
-
+        if (Input.GetButtonDown("Jump"))
+        {
+            _rb.velocity = new Vector2(_rb.velocity.x, _jumpForce);
+        }
     }
     void Update()
     {
-       
+
     }
 }
