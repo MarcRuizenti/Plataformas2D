@@ -485,9 +485,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1144779877}
   - component: {fileID: 1144779876}
-  - component: {fileID: 1144779875}
   - component: {fileID: 1144779879}
   - component: {fileID: 1144779878}
+  - component: {fileID: 1144779880}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -495,30 +495,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1144779875
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1144779873}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 938421925bf120e439af5725757b1104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 6
-  raycastDistance: 1.2
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 55
-  Gronded: 0
-  points:
-  - {x: 0, y: 0}
-  - {x: 0.1, y: 0.05}
-  - {x: -0.1, y: 0.05}
-  - {x: 0.2, y: 0.1}
-  - {x: -0.2, y: 0.1}
 --- !u!212 &1144779876
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -648,3 +624,27 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 2}
   m_Direction: 0
+--- !u!114 &1144779880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1144779873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 938421925bf120e439af5725757b1104, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 6
+  raycastDistance: 1.1
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Gronded: 0
+  points:
+  - {x: 0, y: 0}
+  - {x: 0.1, y: 0.05}
+  - {x: -0.1, y: 0.05}
+  - {x: 0.2, y: 0.1}
+  - {x: -0.2, y: 0.1}
