@@ -8,10 +8,15 @@ public class PlayerMovement : MonoBehaviour
 {
     [Header("Movimiento")]
     public int speed;
+    private float _horizontal; 
+
+    [Header("Salto")]
+    public int speedFly;
     public float _jumpForce;
     public float _timeJump;
     public bool _activeTimeJump = false;
     private float _timeJumpCurent;
+    private float _xJumpDireccion;
 
 
     [Header("Deteccion de Suelo")]
@@ -29,7 +34,6 @@ public class PlayerMovement : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        transform.position += new Vector3(Input.GetAxis("Horizontal") * speed * Time.fixedDeltaTime, 0, 0);
 
         Gronded = false;
         foreach (Vector2 p in points)
@@ -43,13 +47,23 @@ public class PlayerMovement : MonoBehaviour
             }
 
         }
-        if (Input.GetButtonDown("Jump"))
+
+        _horizontal = Input.GetAxis("Horizontal");
+        if (Gronded)
         {
-            _rb.velocity = new Vector2(_rb.velocity.x, _jumpForce);
+            transform.position += new Vector3(_horizontal * speed * Time.fixedDeltaTime, 0, 0);
         }
+        else
+        {
+            transform.position += new Vector3(_horizontal * speedFly * Time.fixedDeltaTime, 0, 0);
+        }
+
     }
     void Update()
     {
-
+        if (Input.GetButtonDown("Jump") && Gronded)
+        {
+            _rb.velocity = new Vector2(_rb.velocity.x, _jumpForce);
+        }   
     }
 }
