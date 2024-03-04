@@ -15,9 +15,6 @@ public class PlayerMovement : MonoBehaviour
     public float _jumpForce;
     public float _timeJump;
     public bool _activeTimeJump = false;
-    private float _timeJumpCurent;
-    private float _xJumpDireccion;
-
 
     [Header("Deteccion de Suelo")]
     [Min(0f)]
