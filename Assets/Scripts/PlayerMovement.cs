@@ -63,4 +63,18 @@ public class PlayerMovement : MonoBehaviour
             _rb.velocity = new Vector2(_rb.velocity.x, _jumpForce);
         }   
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.transform.CompareTag("Plataforma movil"))
+        {
+            transform.parent = collision.transform;
+        }
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.transform.CompareTag("Plataforma movil"))
+        {
+            transform.parent = null;
+        }
+    }
 }
