@@ -581,6 +581,7 @@ GameObject:
   - component: {fileID: 521887335}
   - component: {fileID: 521887337}
   - component: {fileID: 521887336}
+  - component: {fileID: 521887338}
   m_Layer: 3
   m_Name: Attack
   m_TagString: Untagged
@@ -700,6 +701,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &521887338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 521887334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8056ef660fb63a42ace03ef41303699, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canAttack: 0
 --- !u!1 &545001629 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5579710191665144217, guid: 2a8ff88c3c4b21c49af9084da9c83ac9, type: 3}
@@ -1512,6 +1526,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9b9f19ca0b0f81429a18bfac92e949b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canAttack: 0
 --- !u!1001 &1165329895
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2504,6 +2519,10 @@ PrefabInstance:
     - target: {fileID: 3152131457490950732, guid: 9858eff4a568a074fb9795b7281939e7, type: 3}
       propertyPath: m_Name
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 5833811447769943226, guid: 9858eff4a568a074fb9795b7281939e7, type: 3}
+      propertyPath: moveon
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
