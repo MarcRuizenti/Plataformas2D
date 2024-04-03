@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Plataforma movil
   - Coleccionable
+  - Respaun
+  - Enemy
   layers:
   - Default
   - TransparentFX

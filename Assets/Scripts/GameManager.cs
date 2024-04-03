@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("Player")]
+    [SerializeField] private GameObject player;
+
     [Header("Coleccionables")]
     public List<GameObject> coleccionables;
     private int maxColection;
@@ -15,6 +18,7 @@ public class GameManager : MonoBehaviour
     [Header("UI")]
     public TextMeshProUGUI maxColectionsText;
     public TextMeshProUGUI colectionsText;
+    public TextMeshProUGUI vidasText;
 
     void Start()
     {
@@ -25,6 +29,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         colectionsText.text = coleccion.ToString();
+        vidasText.text = player.GetComponent<PlayerHealth>().health.ToString();
 
         if (coleccionables.Count == 0 && !puerta1Open)
         {
