@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class PlataformMove : MonoBehaviour
+public class Puerta : MonoBehaviour
 {
     public float speed;
     public Transform end;
@@ -21,10 +21,7 @@ public class PlataformMove : MonoBehaviour
         if (transform.position == end.position)
         {
             direccion = start.position;
-        }
-        if (transform.position == start.position)
-        {
-            direccion = end.position;
+            transform.GetComponent<Puerta>().enabled = false;
         }
     }
 }
