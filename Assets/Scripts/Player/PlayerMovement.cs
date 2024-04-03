@@ -55,6 +55,7 @@ public class PlayerMovement : MonoBehaviour
             transform.position += new Vector3(_horizontal * speedFly * Time.fixedDeltaTime, 0, 0);
         }
 
+        Flip();
     }
     void Update()
     {
@@ -75,6 +76,34 @@ public class PlayerMovement : MonoBehaviour
         if (collision.transform.CompareTag("Plataforma movil"))
         {
             transform.parent = null;
+        }
+    }
+
+    private void Flip()
+    {
+        if (_horizontal > 0)
+        {
+            
+            if(transform.parent != null)
+            {
+                transform.localScale = new Vector3(-1 / transform.parent.localScale.x, 1 / transform.parent.localScale.y, 1 / transform.parent.localScale.z);
+            }
+            else
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+            }
+        }
+        if (_horizontal < 0)
+        {
+            
+            if (transform.parent != null)
+            {
+                transform.localScale = new Vector3(1 / transform.parent.localScale.x, 1 / transform.parent.localScale.y, 1 / transform.parent.localScale.z);
+            }
+            else
+            {
+                transform.localScale = new Vector3(1, 1, 1);
+            }
         }
     }
 }
