@@ -48,6 +48,10 @@ public class Enemy : MonoBehaviour
                 moveonCounter -= Time.deltaTime;
             }
         }
+        if (transform.GetChild(2) == null)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void Flip()

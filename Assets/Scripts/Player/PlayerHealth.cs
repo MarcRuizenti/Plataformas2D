@@ -5,12 +5,11 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
     public float health;
-    void Start()
-    {
-        health = 3;
-    }
     void Update()
     {
-        
+        if (health <= 0)
+        {
+            Time.timeScale = 0;
+        }
     }
 }

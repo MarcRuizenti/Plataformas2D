@@ -18,10 +18,10 @@ public class Sword : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.transform.CompareTag("Enemy") && canAttack)
+        if (collision.transform.CompareTag("DamageEnemy") && canAttack)
         {
             collision.GetComponent<HealthEnemy>().health--;
-            collision.GetComponent<Enemy>().canMove = false;
+            collision.transform.parent.GetComponent<Enemy>().canMove = false;
         }
     }
 
