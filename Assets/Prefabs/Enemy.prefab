@@ -330,7 +330,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeMovement: 4
-  speed: 4
+  speed: 2
   direction: {x: 1, y: 0, z: 0}
   canMove: 0
   moveon: 0.4

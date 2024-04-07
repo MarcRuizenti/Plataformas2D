@@ -48,7 +48,7 @@ public class Enemy : MonoBehaviour
                 moveonCounter -= Time.deltaTime;
             }
         }
-        if (transform.GetChild(2) == null)
+        if (transform.GetChild(2).GetComponent<HealthEnemy>().health <= 0)
         {
             Destroy(gameObject);
         }

@@ -23,11 +23,12 @@ public class PlayerMovement : MonoBehaviour
     public bool Gronded;
     public List<Vector2> points;
 
-
+    private Animator animator;
     private Rigidbody2D _rb;
     private void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
     private void FixedUpdate()
     {
@@ -42,10 +43,16 @@ public class PlayerMovement : MonoBehaviour
             {
                 Gronded = true;
             }
-
         }
-
         _horizontal = Input.GetAxis("Horizontal");
+        if (_horizontal != 0)
+        {
+            animator.SetBool("Run", true);
+        }
+        else
+        {
+            animator.SetBool("Run", false);
+        }
         if (Gronded)
         {
             transform.position += new Vector3(_horizontal * speed * Time.fixedDeltaTime, 0, 0);
@@ -62,6 +69,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump") && Gronded)
         {
             _rb.velocity = new Vector2(_rb.velocity.x, _jumpForce);
+            animator.SetTrigger("Jump");
         }   
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -81,7 +89,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Flip()
     {
-        if (_horizontal > 0)
+        if (_horizontal < 0)
         {
             
             if(transform.parent != null)
@@ -93,7 +101,7 @@ public class PlayerMovement : MonoBehaviour
                 transform.localScale = new Vector3(-1, 1, 1);
             }
         }
-        if (_horizontal < 0)
+        if (_horizontal > 0)
         {
             
             if (transform.parent != null)

@@ -6,26 +6,34 @@ public class PlayerAttack : MonoBehaviour
 {
     private bool _inputAttack;
     public bool canAttack;
-
+    private Animator animator;
+    private PlayerMovement playerMovement;
     private void Start()
     {
         canAttack = true;
+        animator = GetComponent<Animator>();
+        playerMovement = GetComponent<PlayerMovement>();
     }
     void Update()
     {
         _inputAttack = Input.GetButtonDown("Fire1");
-        if (_inputAttack && canAttack)
+        if (_inputAttack && canAttack && playerMovement.Gronded)
         {
-            StartCoroutine(AttackDuration(gameObject.transform.GetChild(2).gameObject));
             canAttack = false;
+            animator.SetTrigger("Attack");
+            playerMovement.enabled = false;
         }
     }
-
-    private IEnumerator AttackDuration(GameObject _sword)
+    public void ActiveAttack() 
     {
-        _sword.SetActive(true);
-        yield return new WaitForSeconds(0.4f);
-        _sword.SetActive(false);
-        canAttack = true;
+        gameObject.transform.GetChild(1).gameObject.SetActive(true);
     }
+
+    public void DesactiveAttack()
+    {
+        gameObject.transform.GetChild(1).gameObject.SetActive(false);
+        canAttack = true;
+        playerMovement.enabled = true;
+    }
+
 }
