@@ -22,6 +22,7 @@ public class Sword : MonoBehaviour
         {
             collision.GetComponent<HealthEnemy>().health--;
             collision.transform.parent.GetComponent<Enemy>().canMove = false;
+            collision.transform.parent.GetComponent<Enemy>().animator.SetTrigger("Damage");
         }
     }
 

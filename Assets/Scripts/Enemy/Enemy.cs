@@ -13,11 +13,13 @@ public class Enemy : MonoBehaviour
     public bool canMove;
     public float moveon;
     private float moveonCounter;
+    public Animator animator;
     void Start()
     {
         timeMovementCounter = timeMovement;
         canMove = true;
         moveonCounter = moveon;
+        animator = GetComponent<Animator>();
 
     }
     void Update()
@@ -33,6 +35,7 @@ public class Enemy : MonoBehaviour
             {
                 timeMovementCounter -= Time.deltaTime;
                 transform.position += direction * speed * Time.deltaTime;
+                animator.SetBool("isMoveing", true);
             }
             Flip();
         }
@@ -47,13 +50,17 @@ public class Enemy : MonoBehaviour
             {
                 moveonCounter -= Time.deltaTime;
             }
+            animator.SetBool("isMoveing", false);
         }
+    }
+
+    public void Dead()
+    {
         if (transform.GetChild(1).GetComponent<HealthEnemy>().health <= 0)
         {
             Destroy(gameObject);
         }
     }
-
     private void Flip()
     {
         if (direction.x > 0)
