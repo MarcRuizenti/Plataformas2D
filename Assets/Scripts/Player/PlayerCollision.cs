@@ -11,11 +11,12 @@ public class PlayerCollision : MonoBehaviour
     public float regenTime;
     public float regenTimeCounter;
     public bool regen;
-
+    private Animator animator;
     private void Start()
     {
         regen = false;
         regenTimeCounter = regenTime;
+        animator = GetComponent<Animator>();
     }
     void Update()
     {
@@ -24,6 +25,7 @@ public class PlayerCollision : MonoBehaviour
             if (regenTimeCounter <= 0)
             {
                 gameObject.GetComponent<CapsuleCollider2D>().enabled = true;
+                gameObject.GetComponent<PlayerMovement>().enabled = true;
                 regen = false;
                 regenTimeCounter = regenTime;
             }
@@ -31,6 +33,7 @@ public class PlayerCollision : MonoBehaviour
             {
                 regenTimeCounter -= Time.deltaTime;
                 gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
+                gameObject.GetComponent<PlayerMovement>().enabled = false;
             }
         }
     }
@@ -48,6 +51,7 @@ public class PlayerCollision : MonoBehaviour
         {
             Debug.Log("Au");
             gameObject.GetComponent<PlayerHealth>().health--;
+            animator.SetTrigger("Damage");
             regen = true;
         }
     }
