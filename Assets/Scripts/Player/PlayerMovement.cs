@@ -53,6 +53,16 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.SetBool("Run", false);
         }
+
+        if (Gronded)
+        {
+            animator.SetBool("Grounded", true);
+        }
+        else
+        {
+            animator.SetBool("Grounded", false);
+
+        }
         if (Gronded)
         {
             transform.position += new Vector3(_horizontal * speed * Time.fixedDeltaTime, 0, 0);

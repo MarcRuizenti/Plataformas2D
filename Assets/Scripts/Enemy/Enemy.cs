@@ -48,7 +48,7 @@ public class Enemy : MonoBehaviour
                 moveonCounter -= Time.deltaTime;
             }
         }
-        if (transform.GetChild(2).GetComponent<HealthEnemy>().health <= 0)
+        if (transform.GetChild(1).GetComponent<HealthEnemy>().health <= 0)
         {
             Destroy(gameObject);
         }
@@ -56,11 +56,11 @@ public class Enemy : MonoBehaviour
 
     private void Flip()
     {
-        if (direction.x < 0)
+        if (direction.x > 0)
         {
             transform.localScale = new Vector3(-1, 1, 1);
         }
-        if (direction.x > 0)
+        if (direction.x < 0)
         {
             transform.localScale = new Vector3(1, 1, 1);
         }
