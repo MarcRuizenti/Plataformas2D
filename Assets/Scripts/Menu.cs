@@ -21,6 +21,11 @@ public class Menu : MonoBehaviour
         Time.timeScale = 1;
         SceneManager.LoadScene(sceneName);
     }
+
+    public void ClickBotton(GameObject botton)
+    {
+        botton.SetActive(false);
+    }
     void Update()
     {
         
