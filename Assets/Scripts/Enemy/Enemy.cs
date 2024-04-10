@@ -14,6 +14,9 @@ public class Enemy : MonoBehaviour
     public float moveon;
     private float moveonCounter;
     public Animator animator;
+
+    [Header("Sound")]
+    public AudioClip hurt;
     void Start()
     {
         timeMovementCounter = timeMovement;
@@ -71,5 +74,10 @@ public class Enemy : MonoBehaviour
         {
             transform.localScale = new Vector3(1, 1, 1);
         }
+    }
+
+    public void PlayHurt()
+    {
+        SoundManager.Instance.EjecutarAudio(hurt);
     }
 }

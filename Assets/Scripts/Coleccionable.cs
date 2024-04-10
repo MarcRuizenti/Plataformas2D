@@ -5,6 +5,8 @@ using UnityEngine;
 public class Coleccionable : MonoBehaviour
 {
     private GameManager gameManager;
+
+    public AudioClip clip;
     void Start()
     {
         gameManager = FindAnyObjectByType<GameManager>();
@@ -16,6 +18,7 @@ public class Coleccionable : MonoBehaviour
     }
     private void OnDestroy()
     {
+        SoundManager.Instance.EjecutarAudio(clip);
         gameManager.coleccion++;
         gameManager.coleccionables.Remove(gameObject);
     }

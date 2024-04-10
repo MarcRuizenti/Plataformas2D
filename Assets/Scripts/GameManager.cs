@@ -24,6 +24,9 @@ public class GameManager : MonoBehaviour
     public GameObject bottonExit;
     public GameObject fondo;
     public GameObject titel;
+
+    [Header("Sound")]
+    public AudioClip unlockDoor;
     void Start()
     {
         puerta1Open = false;
@@ -39,6 +42,7 @@ public class GameManager : MonoBehaviour
         {
             puerta1.GetComponent<Puerta>().enabled = true;
             puerta1Open = true;
+            SoundManager.Instance.EjecutarAudio(unlockDoor);
         }
 
         if (Input.GetKeyDown("escape"))
