@@ -26,6 +26,11 @@ public class Menu : MonoBehaviour
     {
         botton.SetActive(false);
     }
+
+    public void Return()
+    {
+        Time.timeScale = 1;
+    }
     void Update()
     {
         

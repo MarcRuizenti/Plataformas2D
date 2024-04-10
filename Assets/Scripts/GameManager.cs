@@ -19,7 +19,11 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI maxColectionsText;
     public TextMeshProUGUI colectionsText;
     public TextMeshProUGUI vidasText;
-
+    [Header("Pause")]
+    public GameObject bottonReturn;
+    public GameObject bottonExit;
+    public GameObject fondo;
+    public GameObject titel;
     void Start()
     {
         puerta1Open = false;
@@ -35,6 +39,26 @@ public class GameManager : MonoBehaviour
         {
             puerta1.GetComponent<Puerta>().enabled = true;
             puerta1Open = true;
+        }
+
+        if (Input.GetKeyDown("escape"))
+        {
+            Time.timeScale = 0;
+        }
+
+        if(Time.timeScale == 0)
+        {
+            bottonExit.SetActive(true);
+            bottonReturn.SetActive(true);
+            fondo.SetActive(true);
+            titel.SetActive(true);
+        }
+        else
+        {
+            bottonExit.SetActive(false);
+            bottonReturn.SetActive(false);
+            fondo.SetActive(false);
+            titel.SetActive(false);
         }
     }
 }
