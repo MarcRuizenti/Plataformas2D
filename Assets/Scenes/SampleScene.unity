@@ -9426,7 +9426,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 1
+  m_Pitch: 1.42
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -10444,6 +10444,7 @@ GameObject:
   - component: {fileID: 1144779881}
   - component: {fileID: 1144779882}
   - component: {fileID: 1144779883}
+  - component: {fileID: 1144779885}
   - component: {fileID: 1144779884}
   m_Layer: 3
   m_Name: Player
@@ -10674,6 +10675,22 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1144779885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1144779873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22f87d177b2441d4b8038d60c8b8b7a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swordAttack: {fileID: 8300000, guid: 96b82ff4f576b604bb49fdda2e9a226c, type: 3}
+  tread: {fileID: 8300000, guid: 56919e3fed141fe419e96ba64de01098, type: 3}
+  jump: {fileID: 8300000, guid: 9c8f3bddf65f25c44890f1a203c43103, type: 3}
+  fall: {fileID: 8300000, guid: 7376f821226528c44bc8d280c92fda68, type: 3}
 --- !u!1001 &1165329895
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10940,6 +10957,7 @@ MonoBehaviour:
   bottonExit: {fileID: 931513990}
   fondo: {fileID: 1822460528}
   titel: {fileID: 1041161828}
+  unlockDoor: {fileID: 8300000, guid: 89eeed00834e1bc40a565e327119d0c6, type: 3}
 --- !u!4 &1256264873
 Transform:
   m_ObjectHideFlags: 0
@@ -11316,7 +11334,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 469f5e64f78bcfa49baee310aec1929e, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.25
+  m_Volume: 0.045
   m_Pitch: 1
   Loop: 1
   Mute: 0
