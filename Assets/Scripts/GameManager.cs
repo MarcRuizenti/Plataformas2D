@@ -19,13 +19,20 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI maxColectionsText;
     public TextMeshProUGUI colectionsText;
     public TextMeshProUGUI vidasText;
+
     [Header("Pause")]
-    public GameObject bottonReturn;
-    public GameObject bottonExit;
-    public GameObject fondo;
-    public GameObject titel;
+    public GameObject pausa;
+
+    [Header("Win")]
+    bool win;
+
+    [Header("Loss")]
+    public GameObject loss;
+
+
     void Start()
     {
+        win = false;
         puerta1Open = false;
         maxColection = coleccionables.Count;
         maxColectionsText.text = maxColection.ToString();
@@ -46,19 +53,18 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0;
         }
 
-        if(Time.timeScale == 0)
+        if(Time.timeScale == 0 && player.GetComponent<PlayerHealth>().health > 0 && !win)
         {
-            bottonExit.SetActive(true);
-            bottonReturn.SetActive(true);
-            fondo.SetActive(true);
-            titel.SetActive(true);
+            pausa.SetActive(true);
         }
         else
         {
-            bottonExit.SetActive(false);
-            bottonReturn.SetActive(false);
-            fondo.SetActive(false);
-            titel.SetActive(false);
+            pausa.SetActive(false);
+        }
+
+        if (player.GetComponent<PlayerHealth>().health <= 0)
+        {
+            loss.SetActive(true);
         }
     }
 }
