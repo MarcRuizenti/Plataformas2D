@@ -21,18 +21,16 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI vidasText;
 
     [Header("Pause")]
-    public GameObject pausa;
+    public GameObject bottonReturn;
+    public GameObject bottonExit;
+    public GameObject fondo;
+    public GameObject titel;
 
-    [Header("Win")]
-    bool win;
-
-    [Header("Loss")]
-    public GameObject loss;
-
+    [Header("Sound")]
+    public AudioClip unlockDoor;
 
     void Start()
     {
-        win = false;
         puerta1Open = false;
         maxColection = coleccionables.Count;
         maxColectionsText.text = maxColection.ToString();
@@ -46,6 +44,7 @@ public class GameManager : MonoBehaviour
         {
             puerta1.GetComponent<Puerta>().enabled = true;
             puerta1Open = true;
+            SoundManager.Instance.EjecutarAudio(unlockDoor);
         }
 
         if (Input.GetKeyDown("escape"))
