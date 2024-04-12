@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -27,6 +28,10 @@ public class Menu : MonoBehaviour
         botton.SetActive(false);
     }
 
+    public void ResetScene(string name)
+    {
+        SceneManager.LoadScene(name);
+    }
     public void Return()
     {
         Time.timeScale = 1;

@@ -24,7 +24,8 @@ public class GameManager : MonoBehaviour
     public GameObject pausa;
 
     [Header("Win")]
-    bool win;
+    [SerializeField] private GameObject winPanel;
+    public List<GameObject> enemies;
 
     [Header("Loss")]
     public GameObject loss;
@@ -34,6 +35,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        Time.timeScale = 1;
         puerta1Open = false;
         maxColection = coleccionables.Count;
         maxColectionsText.text = maxColection.ToString();
@@ -55,7 +57,7 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0;
         }
 
-        if(Time.timeScale == 0 && player.GetComponent<PlayerHealth>().health > 0 && !win)
+        if(Time.timeScale == 0 && player.GetComponent<PlayerHealth>().health > 0)
         {
             pausa.SetActive(true);
         }
@@ -67,6 +69,12 @@ public class GameManager : MonoBehaviour
         if (player.GetComponent<PlayerHealth>().health <= 0)
         {
             loss.SetActive(true);
+        }
+
+        if (enemies.Count <= 0)
+        {
+            winPanel.SetActive(true);
+            Time.timeScale = 0;
         }
     }
 }

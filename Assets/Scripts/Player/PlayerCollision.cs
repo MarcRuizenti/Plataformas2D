@@ -41,6 +41,7 @@ public class PlayerCollision : MonoBehaviour
     {
         if (collision.transform.CompareTag("Coleccionable"))
         {
+            SoundManager.Instance.EjecutarAudio(collision.gameObject.GetComponent<Coleccionable>().clip);
             Destroy(collision.gameObject);
         }
         else if (collision.transform.CompareTag("Respaun"))

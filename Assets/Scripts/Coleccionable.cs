@@ -18,7 +18,6 @@ public class Coleccionable : MonoBehaviour
     }
     private void OnDestroy()
     {
-        SoundManager.Instance.EjecutarAudio(clip);
         gameManager.coleccion++;
         gameManager.coleccionables.Remove(gameObject);
     }

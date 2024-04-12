@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour
     public float moveon;
     private float moveonCounter;
     public Animator animator;
+    private GameManager gm;
 
     [Header("Sound")]
     public AudioClip hurt;
@@ -23,6 +24,7 @@ public class Enemy : MonoBehaviour
         canMove = true;
         moveonCounter = moveon;
         animator = GetComponent<Animator>();
+        gm = FindAnyObjectByType<GameManager>();
 
     }
     void Update()
@@ -61,6 +63,7 @@ public class Enemy : MonoBehaviour
     {
         if (transform.GetChild(1).GetComponent<HealthEnemy>().health <= 0)
         {
+            gm.enemies.Remove(gameObject);
             Destroy(gameObject);
         }
     }
