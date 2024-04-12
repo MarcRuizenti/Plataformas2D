@@ -21,10 +21,13 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI vidasText;
 
     [Header("Pause")]
-    public GameObject bottonReturn;
-    public GameObject bottonExit;
-    public GameObject fondo;
-    public GameObject titel;
+    public GameObject pausa;
+
+    [Header("Win")]
+    bool win;
+
+    [Header("Loss")]
+    public GameObject loss;
 
     [Header("Sound")]
     public AudioClip unlockDoor;
