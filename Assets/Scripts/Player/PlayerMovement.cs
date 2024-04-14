@@ -22,7 +22,10 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask layerMask;
     public bool Gronded;
     public List<Vector2> points;
-
+    
+    [Header("Particulas")]
+    [SerializeField] private ParticleSystem _particleJump;
+    
     private Animator animator;
     private Rigidbody2D _rb;
     private void Start()
@@ -76,8 +79,10 @@ public class PlayerMovement : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetButtonDown("Jump") && Gronded)
+        if (Input.GetButtonDown("Jump") && Gronded) 
         {
+            Gronded = false;
+            _particleJump.Play();
             _rb.velocity = new Vector2(_rb.velocity.x, _jumpForce);
             animator.SetTrigger("Jump");
         }   
