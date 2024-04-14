@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0;
         }
 
-        if(Time.timeScale == 0 && player.GetComponent<PlayerHealth>().health > 0)
+        if(Time.timeScale == 0 && player.GetComponent<PlayerHealth>().health > 0 && enemies.Count > 0)
         {
             pausa.SetActive(true);
         }

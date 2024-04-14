@@ -9,6 +9,7 @@ TagManager:
   - Respaun
   - Enemy
   - DamageEnemy
+  - CheckPoint
   layers:
   - Default
   - TransparentFX

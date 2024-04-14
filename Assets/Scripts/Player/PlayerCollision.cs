@@ -55,5 +55,9 @@ public class PlayerCollision : MonoBehaviour
             animator.SetTrigger("Damage");
             regen = true;
         }
+        else if (collision.transform.CompareTag("CheckPoint"))
+        {
+            chekpoint = collision.transform;
+        }
     }
 }
